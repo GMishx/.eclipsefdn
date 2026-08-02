@@ -1,5 +1,6 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
+// Custom ruleset for branch protection
 local customRuleset(name) =
   orgs.newRepoRuleset(name) {
     enforcement: "active",
@@ -20,6 +21,7 @@ local customRuleset(name) =
     }
   };
 
+// Custom branch protection for default branch (main)
 local customDefaultBranchProtection(name) =
   orgs.newBranchProtectionRule(name) {
     pattern: name,
@@ -32,6 +34,7 @@ local customDefaultBranchProtection(name) =
     requires_code_owner_reviews: true,
     require_last_push_approval: true,
     requires_conversation_resolution: true,
+    requires_review_thread_resolution: true,
     requires_linear_history: true,
     is_admin_enforced: true,
     allows_force_pushes: false
