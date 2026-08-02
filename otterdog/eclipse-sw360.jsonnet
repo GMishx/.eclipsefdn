@@ -32,7 +32,6 @@ local customDefaultBranchProtection(name) =
     requires_code_owner_reviews: true,
     require_last_push_approval: true,
     requires_conversation_resolution: true,
-    requires_commit_signatures: true,
     requires_linear_history: true,
     is_admin_enforced: true,
     allows_force_pushes: false
